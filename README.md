@@ -3,14 +3,23 @@ cross disorder revision
 #TWAS comparison
 
 #1. Read H-MAGMA SCZ results
+
 #2. Read TWAS SCZ results
+
 #3. Select H-MAGMA genes that were detected in TWAS SCZ results
+
 #4. Calculate FDR from the H-MAGMA
+
 #5. Take FDR<0.05 genes from H-MAGMA
+
 #6. Calculate TWAS FDR from TWAS.P
+
 #7. Take FDR<0.05 genes from TWAS
+
 #8. Make a Venn diagram with H-MAGMA genes vs. TWAS genes
+
 #9. Run Fisher’s exact test (edited) 
+
 #Repeat this for ASD and BD
 
 #Coloc comparison
