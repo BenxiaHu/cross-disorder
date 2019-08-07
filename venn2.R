@@ -3,6 +3,8 @@ setwd("/proj/hyejunglab/crossdisorder/Revision/hubenxia/")
 options(stringsAsFactors=FALSE)
 background_SCZ<-read.table("twas_SCZ_gene.txt",header=T,sep="\t")
 SCZ_gene<-read.table("twas_SCZ_overlap_gene.txt", header=T,sep="\t")
+MAGMAv26_SCZ_gene<-read.table("/proj/hyejunglab/crossdisorder/Revision/hubenxia/twas_MAGMAv26_SCZ_overlap_gene.txt",sep="\t",header=T)
+
 background_ASD<-read.table("twas_ASD_gene.txt",header=T,sep="\t")
 ASD_gene<-read.table("twas_ASD_overlap_gene.txt", header=T,sep="\t")
 background_BD<-read.table("twas_BD_gene.txt",header=T,sep="\t")
@@ -15,6 +17,8 @@ adjust<-function(input){
 }
 twas_SCZ_adjust<-adjust(background_SCZ)
 SCZ_adjust<-adjust(SCZ_gene)
+MAGMAv26_SCZ_adjust<-adjust(MAGMAv26_SCZ_gene)
+
 twas_ASD_adjust<-adjust(background_ASD)
 ASD_adjust<-adjust(ASD_gene)
 twas_BD_adjust<-adjust(background_BD)
@@ -30,6 +34,8 @@ gplot<-function(input,target,filename){
 }
 
 gplot(SCZ_adjust,twas_SCZ_adjust,'SCZ')
+gplot(MAGMAv26_SCZ_adjust,twas_SCZ_adjust,'MAGMAv26_SCZ')
+
 gplot(ASD_adjust,twas_ASD_adjust,'ASD')
 gplot(BD_adjust,twas_BD_adjust,'BD')
 
@@ -54,6 +60,32 @@ alternative hypothesis: true odds ratio is not equal to 1
 sample estimates:
 odds ratio 
   12.13855 
+
+
+MAGMAv26_SCZ_twas<-597
+MAGMAv26_SCZ_only<-1943
+twas_only<-111
+two_gene<-union(MAGMAv26_SCZ_adjust,twas_SCZ_adjust)
+SCZ_background<-length(setdiff(background_SCZ[,1],two_gene))
+SCZ<-matrix(c(MAGMAv26_SCZ_twas,MAGMAv26_SCZ_only,twas_only,SCZ_background),2,2)
+fisher.result<-fisher.test(SCZ)
+
+##fisher.result
+##fisher.result$p.value
+0
+
+	Fisher's Exact Test for Count Data
+
+data:  SCZ
+p-value < 2.2e-16
+alternative hypothesis: true odds ratio is not equal to 1
+95 percent confidence interval:
+ 24.09868 36.92882
+sample estimates:
+odds ratio 
+  29.72708
+
+
 
 
 ASD_twas<-5
