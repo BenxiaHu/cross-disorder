@@ -1,6 +1,6 @@
 # cross-disorder
 cross disorder revision
-#TWAS comparison
+## TWAS comparison
 
 #1. Read H-MAGMA SCZ results
 #2. Read TWAS SCZ results
@@ -13,7 +13,7 @@ cross disorder revision
 #9. Run Fisher’s exact test (edited) 
 #Repeat this for ASD and BD
 
-#Coloc comparison
+## Coloc comparison
 
 #1. Load coloc results
 #2. Take genes from coloc_result_sig$locus2gene: you should get  ENSG IDs (remove .)
@@ -26,4 +26,4 @@ cross disorder revision
 #9. Make a Venn diagram with H-MAGMA genes vs. coloc genes
 #10. Run Fisher’s exact test
 
-#generate union gene list
+## generate union gene list
