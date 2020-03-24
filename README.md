@@ -27,3 +27,6 @@ cross disorder revision
 10. Run Fisher’s exact test
 
 ## generate union gene list
+
+# Reference
+https://www.nature.com/articles/s41593-020-0603-0
